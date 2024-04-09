@@ -25,7 +25,7 @@ const FetchBattingStats = async (props) => {
 const FetchBowlingStats = async (props) => {
   const options = {
     method: "GET",
-    url: "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/8733/bowling",
+    url: `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${props.id}/bowling`,
     headers: {
       "X-RapidAPI-Key": "e39c0d1f71msh07e4aa1430637f4p10a29ejsn4ae4f12940f6",
       "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
