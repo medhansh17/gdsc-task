@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import BarGraph from "./components/charts/bargraph.component";
 import Landing from "./components/landing/landing.component";
-import Player from "./components/player.component";
+import Player from "./components/player/player.component";
 
 function App() {
   return (
