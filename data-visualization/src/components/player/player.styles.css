@@ -1,8 +1,14 @@
 .playerContainer {
   background-color: antiquewhite;
   height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
 }
-
+.dashboard {
+  width: 20vw;
+}
 .gridContainer {
   height: fit-content;
   width: 80vw;
@@ -12,8 +18,15 @@
   grid-auto-rows: calc((100vh / 5) - 20px);
   gap: 20px;
 }
+
 .card {
   border: 2px solid red;
+  position: relative;
+}
+.shareButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .span8 {
   grid-column: span 7;
@@ -31,6 +44,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .playerContainer {
+    flex-direction: column;
+  }
   .gridContainer {
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: 100vw;

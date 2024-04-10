@@ -1,5 +1,5 @@
 import { ResponsiveBar } from "@nivo/bar";
-
+import { useRef } from "react";
 const transformData = (data) => {
   const transformedData = [];
   for (let i = 1; i < data.headers.length; i++) {
@@ -18,6 +18,7 @@ const transformData = (data) => {
 };
 
 export default function BarGraph(props) {
+  const ref = useRef(null);
   console.log("Bargraph ", props.data);
   const transformedData = transformData(props.data);
   return (
