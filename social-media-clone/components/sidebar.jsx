@@ -1,7 +1,12 @@
 import SidebarLink from "./sidebarlink";
 
-import { AiFillHome, AiOutlineUser } from "react-icons/ai";
-import { BsThreeDots } from "react-icons/bs";
+import { AiFillHome, AiOutlineUser, AiOutlineInbox } from "react-icons/ai";
+import { BsBell, BsBookmark, BsThreeDots } from "react-icons/bs";
+import { BiHash } from "react-icons/bi";
+import {
+  HiOutlineClipboardList,
+  HiOutlineDotsCircleHorizontal,
+} from "react-icons/hi";
 import { FaXTwitter } from "react-icons/fa6";
 import { signOut, useSession } from "next-auth/react";
 
@@ -15,7 +20,13 @@ const Sidebar = () => {
       </div>
       <div className="space-y-2 mt-4 mb-2.5 xl:ml-24">
         <SidebarLink text="Home" Icon={AiFillHome} />
+        <SidebarLink text="Explore" Icon={BiHash} />
+        <SidebarLink text="Notifications" Icon={BsBell} />
+        <SidebarLink text="Messages" Icon={AiOutlineInbox} />
+        <SidebarLink text="Bookmarks" Icon={BsBookmark} />
+        <SidebarLink text="Lists" Icon={HiOutlineClipboardList} />
         <SidebarLink text="Profile" Icon={AiOutlineUser} />
+        <SidebarLink text="More" Icon={HiOutlineDotsCircleHorizontal} />
       </div>
 
       <button className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white rounded-full w-52 h-[52px] text-lg font-bold hover:bg-[#1a8cd8]">

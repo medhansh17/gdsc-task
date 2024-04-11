@@ -22,24 +22,13 @@ import { AppContext } from "../contexts/app.context";
 const Post = ({ id, post }) => {
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
-  const [comments, setComments] = useState([]);
 
   const { data: session } = useSession();
   const router = useRouter();
 
   const [appContext, setAppContext] = useContext(AppContext);
 
-  useEffect(
-    () =>
-      onSnapshot(
-        query(
-          collection(db, "posts", id, "comments"),
-          orderBy("timestamp", "desc")
-        ),
-        (snapshot) => setComments(snapshot.docs)
-      ),
-    [db, id]
-  );
+  
 
   useEffect(
     () =>

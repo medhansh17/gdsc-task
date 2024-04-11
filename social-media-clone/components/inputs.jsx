@@ -26,8 +26,14 @@ const Input = () => {
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      if (file.type.startsWith("image/")) {
+        reader.readAsDataURL(file);
+      } else {
+        alert("Only images are allowed for upload.");
+        return;
+      }
     }
 
     reader.onload = (readerEvent) => {
