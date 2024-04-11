@@ -9,6 +9,7 @@ import {
   BattingResponsiveRadar,
   BowlingResponsiveRadar,
 } from "../charts/radialgraph.component";
+import GetInfo from "../../apis/getinfo";
 import { FetchBattingStats, FetchBowlingStats } from "../../apis/fetchstats";
 import MyResponsiveRadialBar from "../charts/radialbar.component";
 
@@ -16,6 +17,7 @@ export default function Player() {
   const { id } = useParams();
   const [battingData, setBattingData] = useState(null);
   const [bowlingData, setBowlingData] = useState(null);
+  const [playerinfo, setPlayerInfo] = useState(null);
   const barRef = useRef(null);
   const radialBarRef = useRef(null);
   const radialgraphRef = useRef(null);
@@ -74,7 +76,16 @@ export default function Player() {
         console.error(error);
       }
     };
-
+    const getInfo = async () => {
+      try {
+        const response = await GetInfo({ id });
+        setPlayerInfo(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getInfo();
     const storedBattingData = localStorage.getItem(`${id}_battingData`);
     const storedBowlingData = localStorage.getItem(`${id}_bowlingData`);
     if (storedBattingData && storedBowlingData) {
@@ -85,20 +96,42 @@ export default function Player() {
       fetchBowlingData();
     }
   }, [id]);
-
   return (
     <div className="playerContainer">
-      <div className="dashboard">
-        <button>
-          <Link
-            to={{
-              pathname: `/`,
-            }}
-          >
-            Go Back
-          </Link>
-        </button>
-      </div>
+      {playerinfo && (
+        <div className="dashboard">
+          <div className="imageContainer">
+            <img src={playerinfo.image} alt={playerinfo.name} />
+          </div>
+          <div className="desc">
+            <div className="player-info">
+              <p className="header">Name</p>
+              <h3>{playerinfo.name}</h3>
+            </div>
+            <div className="player-info">
+              <p className="header">Date of Birth:</p>
+              <p>{playerinfo.DoB}</p>
+            </div>
+            <div className="player-info">
+              <p className="header">Batting Style:</p>
+              <p>{playerinfo.bat}</p>
+            </div>
+            <div className="player-info">
+              <p className="header">Bowling Style:</p>
+              <p>{playerinfo.bowl}</p>
+            </div>
+          </div>
+          <button className="goBack">
+            <Link
+              to={{
+                pathname: `/`,
+              }}
+            >
+              Go Back
+            </Link>
+          </button>
+        </div>
+      )}
       <div className="gridContainer">
         <div className="card span8" ref={barRef}>
           {battingData ? (

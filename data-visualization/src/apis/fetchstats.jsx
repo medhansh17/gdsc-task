@@ -6,7 +6,7 @@ const FetchBattingStats = async (props) => {
     method: "GET",
     url: url,
     headers: {
-      "X-RapidAPI-Key": "e39c0d1f71msh07e4aa1430637f4p10a29ejsn4ae4f12940f6 ",
+      "X-RapidAPI-Key": "7a3040195cmsh824a35c4ae9e8d6p1ff50cjsn73cc8650d54e ",
       "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
     },
   };
