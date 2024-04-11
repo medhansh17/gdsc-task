@@ -9,14 +9,12 @@ Welcome to the Twitter Clone project! This project is a Twitter-like social medi
 - Responsive design with Tailwind CSS
 - CRUD operations for tweets
 - Like and retweet functionality
-- Follow and unfollow users
 
 ## Tech Stack
 
 - Next.js
 - Tailwind CSS
 - Firebase (Realtime Database for real-time updates, Authentication with NextAuth.js)
-- [Other technologies used, if any]
 
 ## Getting Started
 
