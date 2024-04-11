@@ -8,7 +8,7 @@ Welcome to the Twitter Clone project! This project is a Twitter-like social medi
 - Real-time updates using Firebase Realtime Database
 - Responsive design with Tailwind CSS
 - CRUD operations for tweets
-- Like and retweet functionality
+- Like functionality
 
 ## Tech Stack
 
