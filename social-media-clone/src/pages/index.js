@@ -1,8 +1,8 @@
 import { useSession } from "next-auth/react";
-import { Inter } from "next/font/google";
 import Login from "../../components/login";
 import Sidebar from "../../components/sidebar";
-const inter = Inter({ subsets: ["latin"] });
+import Feed from "../../components/feed";
+import { AppContext } from "../../contexts/app.context";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -10,7 +10,10 @@ export default function Home() {
 
   return (
     <main className="relative max-w-[1400px] mx-auto">
-      <SideBar />
+      <Sidebar />
+      <div className="flex gap-6">
+        <Feed />
+      </div>
     </main>
   );
 }
